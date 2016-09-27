@@ -14,7 +14,7 @@ import cliente.cliente.Chat;
  *
  * @author gerar
  */
-public class ListaUsuariosActivos extends javax.swing.JPanel {
+public class ListaUsuariosActivosChats extends javax.swing.JPanel {
     private String nombreUsuarioLocal;
     private ListaCustomizada modeloListaUsuariosActivos;
     private ListaCustomizada modeloListaChatsPrivados;
@@ -23,7 +23,7 @@ public class ListaUsuariosActivos extends javax.swing.JPanel {
     /**
      * Creates new form listaUsuariosActivos
      */
-    public ListaUsuariosActivos(String nombreUsuario) {
+    public ListaUsuariosActivosChats(String nombreUsuario) {
         this.nombreUsuarioLocal = nombreUsuario;
         modeloListaUsuariosActivos = new ListaCustomizada();
         modeloListaUsuariosActivos = new ListaCustomizada();

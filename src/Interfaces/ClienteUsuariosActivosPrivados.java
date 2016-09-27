@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cliente.servidor;
+package Interfaces;
 
-import cliente.interfaces.ListaUsuariosActivos;
+import cliente.interfaces.ListaUsuariosActivosChats;
 import java.rmi.RemoteException;
 
 /**
@@ -13,9 +13,9 @@ import java.rmi.RemoteException;
  * @author gerar
  */
 public class ClienteUsuariosActivosPrivados implements usuariosActivosChatsPrivados, Runnable {
-    ListaUsuariosActivos listaUsuarios;
+    ListaUsuariosActivosChats listaUsuarios;
     
-    public ClienteUsuariosActivosPrivados(ListaUsuariosActivos listaUsuarios){
+    public ClienteUsuariosActivosPrivados(ListaUsuariosActivosChats listaUsuarios){
         this.listaUsuarios = listaUsuarios;
     }
     
