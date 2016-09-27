@@ -14,7 +14,6 @@ public class HiloPortero implements Runnable{
     @Override
     public void run(){
         System.out.println("Se conceto" + "[Fulano]");
-        
         System.out.println("Salio" + "[Fulano]");
     }
     
