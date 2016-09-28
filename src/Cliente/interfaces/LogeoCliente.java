@@ -5,6 +5,7 @@
  */
 package cliente.interfaces;
 
+import Cliente.interfaces.VistaChat;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.Arrays;
@@ -150,7 +151,9 @@ public class LogeoCliente extends javax.swing.JFrame {
             if (!usuarioValido){
                 JOptionPane.showMessageDialog(null, "Considere crear un usuario ", "Usuario inexistente", JOptionPane.WARNING_MESSAGE);
             }else{
-                JOptionPane.showMessageDialog(null, "¡Usuario existente!", "Felicidades, ¡Sabes escribir!", JOptionPane.INFORMATION_MESSAGE);                
+                VistaChat chat = new VistaChat();
+                chat.pasarNombre(textFieldNombreUsuario.getText());
+                chat.setVisible(true);
             }
         }catch (RemoteException e){
             System.out.println(e.getMessage());

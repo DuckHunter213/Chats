@@ -43,7 +43,7 @@ public class Cliente {
 }
     
     public boolean validarUsuario() throws RemoteException, NotBoundException {
-        Registry registry = LocateRegistry.getRegistry("192.168.43.194");
+        Registry registry = LocateRegistry.getRegistry("201.108.197.6",2333);
         Autentificar stubAutenticacion = (Autentificar)registry.lookup("Autenticar");
         boolean respuesta  =  stubAutenticacion.usuarioValido(nombreUsuario, contraseniaUsuario);
         System.out.println("Respuesta: " + stubAutenticacion.toString());
@@ -54,7 +54,7 @@ public class Cliente {
     }
     
     public boolean registrarUsuario() throws RemoteException, NotBoundException {
-        Registry registry = LocateRegistry.getRegistry("192.168.43.194");
+        Registry registry = LocateRegistry.getRegistry("201.108.197.6",2333);
         Autentificar stubAutenticacion = (Autentificar)registry.lookup("Autenticar");
         //Usa el método del servidor
         boolean respuesta  =  stubAutenticacion.nuevoUsuario(nombreUsuario, contraseniaUsuario);

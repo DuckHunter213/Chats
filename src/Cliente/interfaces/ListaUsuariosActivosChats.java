@@ -5,6 +5,7 @@
  */
 package cliente.interfaces;
 
+import Cliente.cliente.ListaCustomizada;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ListSelectionModel;
@@ -26,7 +27,7 @@ public class ListaUsuariosActivosChats extends javax.swing.JPanel {
     public ListaUsuariosActivosChats(String nombreUsuario) {
         this.nombreUsuarioLocal = nombreUsuario;
         modeloListaUsuariosActivos = new ListaCustomizada();
-        modeloListaUsuariosActivos = new ListaCustomizada();
+        modeloListaChatsPrivados = new ListaCustomizada();
         listaSalas = new ArrayList<>();
         initComponents();
     }

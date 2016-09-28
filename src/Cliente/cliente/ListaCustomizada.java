@@ -1,4 +1,4 @@
-package cliente.interfaces;
+package Cliente.cliente;
 
 import java.util.ArrayList;
 import java.util.List;
