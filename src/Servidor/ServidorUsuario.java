@@ -39,10 +39,8 @@ public class ServidorUsuario implements Autentificar{
         System.out.println("Corriendo...");
         
         while(true){
-            
             (new Thread(new HiloPortero())).start();
             (new Thread(new HiloCartero())).start();
-            
         }
     }
 
