@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package Servidor;
-
 import Interfaces.Autentificar;
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
@@ -25,23 +24,20 @@ import java.util.logging.Logger;
 public class ServidorUsuario implements Autentificar{
 
     ResultSet resultados;
-    /**
-     * @param args the command line arguments
-     * @throws java.rmi.RemoteException
-     * @throws java.rmi.AlreadyBoundException
-     */
+    
     public static void main(String[] args) throws RemoteException, AlreadyBoundException{
-        
+
         ServidorUsuario servidor = new ServidorUsuario();
-        Autentificar autentificarProxy = (Autentificar) UnicastRemoteObject.exportObject(servidor, 0);
-        Registry registro = LocateRegistry.getRegistry("");
+        Autentificar autentificarProxy = (Autentificar)UnicastRemoteObject.exportObject(servidor,2333);
+        LocateRegistry.createRegistry(2333);
+        Registry registro = LocateRegistry.getRegistry("192.168.1.65");
         registro.bind("Autenticar", autentificarProxy);
         System.out.println("Corriendo...");
-        
-        while(true){
+
+        /*while (true){
             (new Thread(new HiloPortero())).start();
             (new Thread(new HiloCartero())).start();
-        }
+        }*/
     }
 
     @Override
@@ -75,7 +71,7 @@ public class ServidorUsuario implements Autentificar{
         Conexion conexion = new Conexion();
         Connection connection;
         try{
-            connection=conexion.obtenerConexion();
+            connection = conexion.obtenerConexion();
             PreparedStatement sentenciaSQL = connection.prepareStatement("INSERT INTO usuarios VALUES (?,?)");
             sentenciaSQL.setString(1, usuario);
             sentenciaSQL.setString(2, contra);
