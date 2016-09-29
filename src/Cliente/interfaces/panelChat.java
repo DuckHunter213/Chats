@@ -9,7 +9,7 @@ package cliente.interfaces;
  *
  * @author gerar
  */
-public class panelChat extends javax.swing.JPanel {
+public class panelChat extends javax.swing.JPanel{
 
     /**
      * Creates new form panelChat

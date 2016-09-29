@@ -11,7 +11,7 @@ public class Conexion{
     //Los datos fueron puestos en bruto para prubas, en siguientes versiones
     //se asignaran los datos mediante la interfaz
     private Connection conexion;
-    private final String DB = "jdbc:mysql://127.0.0.1/usuario";
+    private final String DB = "jdbc:mysql://201.108.134.145/usuario";
     private final String USUARIO = "root";
     private final String CONTRASENA = "";
 

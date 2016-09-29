@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Servidor;
+
 import Interfaces.Autentificar;
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
@@ -16,6 +17,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.security.*;
 
 /**
  *
@@ -24,20 +26,25 @@ import java.util.logging.Logger;
 public class ServidorUsuario implements Autentificar{
 
     ResultSet resultados;
-    
+
     public static void main(String[] args) throws RemoteException, AlreadyBoundException{
+        AccessController.
+            doPrivileged((PrivilegedAction) () -> {
+                try{
+                    ServidorUsuario servidor = new ServidorUsuario();
+                    Autentificar autentificarProxy = (Autentificar) UnicastRemoteObject.exportObject(servidor, 0);
+                    Registry registro = LocateRegistry.getRegistry("");
+                    registro.bind("Autenticar", autentificarProxy);
+                    System.out.println("Corriendo...");
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+                return null;
+            });
 
-        ServidorUsuario servidor = new ServidorUsuario();
-        Autentificar autentificarProxy = (Autentificar)UnicastRemoteObject.exportObject(servidor,2333);
-        LocateRegistry.createRegistry(2333);
-        Registry registro = LocateRegistry.getRegistry("192.168.1.65");
-        registro.bind("Autenticar", autentificarProxy);
-        System.out.println("Corriendo...");
-
-        /*while (true){
-            (new Thread(new HiloPortero())).start();
-            (new Thread(new HiloCartero())).start();
-        }*/
+        while (true){
+            (new Thread(new ManejadorMensajes())).start();
+        }
     }
 
     @Override

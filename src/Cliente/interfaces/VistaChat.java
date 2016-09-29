@@ -7,7 +7,7 @@
 package Cliente.interfaces;
 
 import cliente.interfaces.ListaUsuariosActivosChats;
-import cliente.interfaces.PanelChat;
+import cliente.interfaces.panelChat;
 
 /**
  *
@@ -24,7 +24,7 @@ public class VistaChat extends javax.swing.JFrame {
         panelUsuarios.add(listaUsuariosChats);
         
         
-        PanelChat chat = new PanelChat();
+        panelChat chat = new panelChat();
         chat.setSize(panelChat.getSize());
         panelChat.add(chat);
     }
