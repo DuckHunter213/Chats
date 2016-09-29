@@ -9,13 +9,15 @@ package cliente.interfaces;
  *
  * @author gerar
  */
-public class panelChat extends javax.swing.JPanel {
+public class PanelChat extends javax.swing.JPanel {
 
     /**
      * Creates new form panelChat
      */
-    public panelChat() {
+    public PanelChat() {
         initComponents();
+        areaTextoChat.setText("Hola mundo");
+        areaTextoChat.setText(areaTextoChat.getText() + "\n" + "Otra cosa" );
     }
 
     /**
@@ -30,7 +32,9 @@ public class panelChat extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         areaTextoChat = new javax.swing.JTextArea();
 
+        areaTextoChat.setEditable(false);
         areaTextoChat.setColumns(20);
+        areaTextoChat.setLineWrap(true);
         areaTextoChat.setRows(5);
         jScrollPane1.setViewportView(areaTextoChat);
 
